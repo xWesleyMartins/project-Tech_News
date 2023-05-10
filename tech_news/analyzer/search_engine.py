@@ -7,7 +7,6 @@ import datetime
 def search_by_title(title):
     regex_query = {"title": {"$regex": title, "$options": "i"}}
     news_searching = search_news(regex_query)
-
     result = [(news["title"], news["url"]) for news in news_searching]
     return result
 
@@ -27,4 +26,7 @@ def search_by_date(date):
 
 # Requisito 9
 def search_by_category(category):
-    """Seu código deve vir aqui"""
+    regex_query = {"category": {"$regex": category, "$options": "i"}}
+    news_searching = search_news(regex_query)
+    result = [(news["title"], news["url"]) for news in news_searching]
+    return result
